@@ -2,6 +2,8 @@ service: aws-node-typescript # NOTE: update this with your service name
 
 frameworkVersion: '3'
 
+useDotenv: true
+
 provider:
     name: aws
     stage: ${opt:stage, 'dev'}
@@ -11,6 +13,9 @@ provider:
     apiGateway:
         binaryMediaTypes:
             - '*/*'
+    environment:
+        NOTION_API_KEY: ${env:NOTION_API_KEY}
+        NOTION_DATABASE_ID: ${env:NOTION_DATABASE_ID}
 
 package:
     individually: true
@@ -25,6 +30,7 @@ functions:
 
 plugins:
     - serverless-esbuild
+    - serverless-dotenv-plugin
     - serverless-offline
 
 custom:
