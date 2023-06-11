@@ -1,0 +1,36 @@
+service: aws-node-typescript # NOTE: update this with your service name
+
+frameworkVersion: '3'
+
+provider:
+    name: aws
+    stage: ${opt:stage, 'dev'}
+    region: ${opt:region, 'ap-northeast-2'}
+    runtime: nodejs18.x
+    timeout: 30
+    apiGateway:
+        binaryMediaTypes:
+            - '*/*'
+
+package:
+    individually: true
+
+functions:
+    hello:
+        handler: ./src/index.handler
+        events:
+            - http:
+                  method: GET
+                  path: notion
+
+plugins:
+    - serverless-esbuild
+    - serverless-offline
+
+custom:
+    esbuild:
+        bundle: true
+        minify: false
+        sourcemap: true
+        target: 'node18'
+        packager: yarn
