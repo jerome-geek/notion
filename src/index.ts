@@ -1,13 +1,15 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import { createPage } from './createPage';
 
 exports.handler = async (
     event: APIGatewayProxyEvent,
     context,
 ): Promise<APIGatewayProxyResult> => {
-    console.log('EVENT: \n' + JSON.stringify(event, null, 2));
-    // return context.logStreamName;
+    const result = await createPage();
+    console.log('🚀 ~ file: index.ts:9 ~ result:', result);
+
     return {
         statusCode: 200,
-        body: 'notion test',
+        body: JSON.stringify(result),
     };
 };

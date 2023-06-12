@@ -27,6 +27,8 @@ functions:
             - http:
                   method: GET
                   path: notion
+            # - schedule: cron(* * * * MON-FRI *)
+            - schedule: rate(1 minute)
 
 plugins:
     - serverless-esbuild
