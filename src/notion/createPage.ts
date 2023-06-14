@@ -1,7 +1,7 @@
 import { Client } from '@notionhq/client';
 import randomEmoji from '@0xadada/random-emoji';
 
-import { getDate } from './utils';
+import { getDate } from '../utils';
 
 // (1) 환경 변수로 API 키를 참조합니다.
 const NOTION_API_KEY = process.env.NOTION_API_KEY;
@@ -36,7 +36,7 @@ async function createPage() {
 
         if (response) {
             console.log('Success! Entry added.');
-            return;
+            return response;
         } else {
             throw new Error();
         }
