@@ -2,6 +2,10 @@
     "name": "notion",
     "version": "1.0.0",
     "license": "MIT",
+    "scripts": {
+        "dev": "sls offline --stage dev --region ap-northeast-2",
+        "deploy": "sls deploy --stage dev --region ap-northeast-2 --aws-profile jerome --verbose --debug '*'"
+    },
     "devDependencies": {
         "@types/aws-lambda": "^8.10.117",
         "esbuild": "^0.14.25",

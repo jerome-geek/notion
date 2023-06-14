@@ -1,4 +1,4 @@
-service: aws-node-typescript # NOTE: update this with your service name
+service: notion
 
 frameworkVersion: '3'
 
@@ -27,8 +27,7 @@ functions:
             - http:
                   method: GET
                   path: notion
-            # - schedule: cron(* * * * MON-FRI *)
-            - schedule: rate(1 minute)
+            - schedule: cron(0 23 ? * * *) # UTC 기준이므로 매일 오전 8시에 실행
 
 plugins:
     - serverless-esbuild

@@ -162,4 +162,7 @@ dist
 # and uncomment the following lines
 # .pnp.*
 
+# esbuild outputs
+.esbuild
+
 # End of https://www.toptal.com/developers/gitignore/api/yarn,node,serverless
