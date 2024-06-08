@@ -43,10 +43,13 @@ jobs:
                   cache-name: cache-node-modules
               with:
                   path: node_modules
-                  key: ${{ runner.OS }}-build-${{ hashFiles('package-lock.json') }}
+                  key: ${{ runner.OS }}-build-${{ hashFiles('yarn-lock.json') }}
                   restore-keys: |
                       ${{ runner.OS }}-build-${{ env.cache-name }}-
                       ${{ runner.OS }}-build-
+
+            - name: yarn install
+              run: yarn install
 
             # 일반적인 ci를 실행합니다.
             # - name: CI
@@ -56,4 +59,4 @@ jobs:
             # cron job을 실행합니다.
             - name: Run Cron
               run: |
-                  yarn cron
+                  npm run cron
