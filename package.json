@@ -2,9 +2,11 @@
     "name": "notion",
     "version": "1.0.0",
     "license": "MIT",
+    "type": "module",
     "scripts": {
         "dev": "sls offline --stage dev --region ap-northeast-2",
         "deploy": "sls deploy --stage dev --region ap-northeast-2 --aws-profile jerome --verbose --debug '*'",
+        "cron": "tsx ./src/cron.ts"
     },
     "devDependencies": {
         "@types/aws-lambda": "^8.10.138",
@@ -15,6 +17,7 @@
         "serverless-offline": "^13.6.0",
         "ts-node": "^10.9.2",
         "tsconfig-paths": "^4.2.0",
+        "tsx": "^4.13.3",
         "typescript": "^5.4.5"
     },
     "dependencies": {
