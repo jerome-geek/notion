@@ -49,11 +49,11 @@ jobs:
                       ${{ runner.OS }}-build-
 
             # 일반적인 ci를 실행합니다.
-            - name: CI
-              run: |
-                  npm ci
+            # - name: CI
+            #   run: |
+            #       npm ci
 
             # cron job을 실행합니다.
             - name: Run Cron
               run: |
-                  npm run cron
+                  yarn cron
