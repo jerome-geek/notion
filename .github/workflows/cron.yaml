@@ -9,7 +9,7 @@ on:
         - cron: '*/5 * * * *'
     push:
         branches:
-            - test
+            - test1
 
 jobs:
     cron:
