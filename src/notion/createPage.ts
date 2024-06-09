@@ -5,7 +5,7 @@ import { getDate } from '../utils';
 
 // (1) 환경 변수로 API 키를 참조합니다.
 const NOTION_API_KEY = process.env.NOTION_API_KEY;
-const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID;
+const NOTION_DATABASE_DAILY_LOG_ID = process.env.NOTION_DATABASE_DAILY_LOG_ID;
 
 // (2) SDK 클라이언트의 인스턴스를 초기화합니다.
 const notion = new Client({ auth: NOTION_API_KEY });
@@ -19,7 +19,7 @@ async function createPage() {
             },
             parent: {
                 type: 'database_id',
-                database_id: NOTION_DATABASE_ID,
+                database_id: NOTION_DATABASE_DAILY_LOG_ID,
             },
             properties: {
                 title: {
