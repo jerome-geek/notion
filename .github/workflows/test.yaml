@@ -9,7 +9,7 @@ on:
         # 크론은 https://crontab.guru/ 여기서 확인하면 좋을 것 같습니다.
         # 이 크론은 평일 5시 (한국시간 14시)에 실행됩니다.
         # - cron: '0 23 * * *'
-        - cron: '* * * * *'
+        - cron: '5 * * * *'
 
 jobs:
     cron:
@@ -50,6 +50,11 @@ jobs:
 
             - name: yarn install
               run: yarn install
+
+            - name: create dotenv
+              run: |
+                  touch .env
+                  echo "${{ secrets.ENV }}" >> .env
 
             # 일반적인 ci를 실행합니다.
             # - name: CI
